@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LiudaK/ToDoList/issues"
   },
-  "homepage": "https://github.com/LiudaK/ToDoList#readme"
+  "homepage": "https://github.com/LiudaK/ToDoList#readme",
+  "devDependencies": {
+    "eslint": "^5.4.0"
+  }
 }
