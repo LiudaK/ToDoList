@@ -183,3 +183,24 @@ function renderList() {
         }
     })
 }
+function loadTask() {
+    const xhr = new XMLHttpRequest();
+    //with asynchronous
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos', true);
+    xhr.send();
+    let loadedList = [];
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            loadedList = JSON.parse(xhr.response).map(el => ({
+                ...el,
+                done: el.completed
+            }));
+            list = [
+                ... list,
+                ... loadedList
+            ];
+            localStorage.setItem('todoList', JSON.stringify(list));
+            renderList();
+        }
+    };
+}
